@@ -10,6 +10,9 @@
     article { flex: 1; min-width: 0; }
     aside { width: 300px; flex-shrink: 0; }
     section { margin-bottom: 32px; }
+    .channel { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .channel section { margin-bottom: 0; }
+    .channel section:last-child { flex: 1 1 0; min-width: 260px; }
     .button { display: inline-block; background: #0f0f0f; color: #fff; text-decoration: none;
               padding: 10px 18px; border-radius: 18px; font-weight: bold; }
     aside ul { list-style: none; padding: 0; margin: 0; }
@@ -27,8 +30,9 @@
 
   <main class="layout">
     <article>
+      <div class="channel">
       <section>
-        <img src="logo.png" alt="Логотип IT коледжу Львівської політехніки" height="300">
+        <img src="logo.jpg" alt="Логотип IT коледжу Львівської політехніки" height="300">
       </section>
 
       <section>
@@ -36,6 +40,7 @@
         <p>Офіційний YouTube-канал IT коледжу Львівської політехніки: відео про навчання, спеціальності та життя коледжу. Сайт коледжу — <a href="https://itcollege.lviv.ua" target="_blank">itcollege.lviv.ua</a>.</p>
         <a class="button" href="https://www.youtube.com/@itcollegelviv?sub_confirmation=1" target="_blank" rel="noopener">Підписатися</a>
       </section>
+      </div>
 
       <section>
         <h2>Відео</h2>
@@ -55,28 +60,26 @@
 
       <section>
         <h2>Трансляція про навчання в коледжі</h2>
-        <!-- ВСТАВТЕ ID ВАШОГО ВІДЕО замість VIDEO_ID (YouTube → Поділитися → Вставити) -->
-        <iframe width="800" height="450" src="https://www.youtube.com/embed/VIDEO_ID"
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/-zCkzxV9hO8"
                 title="Трансляція про навчання в коледжі" loading="lazy" allowfullscreen
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </section>
 
       <section>
-        <h2>Університети та коледжі Львова</h2>
-        <!-- ВСТАВТЕ посилання з «Мої карти Google» → Поділитися → Вставити на сайт, замість MAP_ID -->
-        <iframe width="800" height="480" src="https://www.google.com/maps/d/embed?mid=MAP_ID"
-                title="Університети та коледжі Львова" loading="lazy"></iframe>
+        <h2>Музеї та театри Львова</h2>
+        <iframe width="800" height="480" src="https://www.google.com/maps/d/embed?mid=1aj-624Hd_3Mypbsy5p31tDnT4wlQMz0"
+                title="Музеї та театри Львова" loading="lazy"></iframe>
       </section>
     </article>
 
     <aside>
-      <h2>Відео каналу</h2>
+      <h2>Спеціальності та освітні програми</h2>
       <ul>
-        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb1.jpg" alt="Прев'ю відео"><span>Вивчай спеціальність майбутнього</span></a></li>
-        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb2.jpg" alt="Прев'ю відео"><span>122 Комп'ютерні науки. Computer Science. Вступ у IT</span></a></li>
-        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb3.jpg" alt="Прев'ю відео"><span>172 Телекомунікації та радіотехніка</span></a></li>
-        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb4.jpg" alt="Прев'ю відео"><span>172 Телекомунікації та радіотехніка — Інжиніринг та...</span></a></li>
-        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb5.jpg" alt="Прев'ю відео"><span>029 Інформація, бібліотечна та архівна справа</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=QIdihNcK5pU" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/QIdihNcK5pU/mqdefault.jpg" alt="Прев'ю відео: Вивчай спеціальність майбутнього"><span>Вивчай спеціальність майбутнього</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=3NC1zuyPi-w" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/3NC1zuyPi-w/mqdefault.jpg" alt="Прев'ю відео: 122 Комп'ютерні науки. Computer Science. Вступ у IT"><span>122 Комп'ютерні науки. Computer Science. Вступ у IT</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=umcT2QRNh3U" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/umcT2QRNh3U/mqdefault.jpg" alt="Прев'ю відео: 172 Телекомунікації та радіотехніка"><span>172 Телекомунікації та радіотехніка</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=dUdDE_C5zJo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/dUdDE_C5zJo/mqdefault.jpg" alt="Прев'ю відео: 172 Телекомунікації та радіотехніка — Інжиніринг та..."><span>172 Телекомунікації та радіотехніка — Інжиніринг та...</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=P2V-LnFa6Ac" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/P2V-LnFa6Ac/mqdefault.jpg" alt="Прев'ю відео: 029 Інформація, бібліотечна та архівна справа"><span>029 Інформація, бібліотечна та архівна справа</span></a></li>
       </ul>
     </aside>
   </main>
