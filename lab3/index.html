@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT коледж Львівської політехніки — YouTube</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0 auto; max-width: 1200px; padding: 0 16px; }
+    .layout { display: flex; gap: 24px; align-items: flex-start; }
+    article { flex: 1; min-width: 0; }
+    aside { width: 300px; flex-shrink: 0; }
+    section { margin-bottom: 32px; }
+    .button { display: inline-block; background: #0f0f0f; color: #fff; text-decoration: none;
+              padding: 10px 18px; border-radius: 18px; font-weight: bold; }
+    aside ul { list-style: none; padding: 0; margin: 0; }
+    aside li { margin-bottom: 14px; }
+    aside a { display: flex; gap: 10px; align-items: center; color: #111; text-decoration: none; }
+    aside img { width: 128px; border-radius: 8px; }
+    iframe { max-width: 100%; border: 0; }
+    @media (max-width: 800px) { .layout { flex-direction: column; } aside { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IT коледж Львівської політехніки</h1>
+  </header>
+
+  <main class="layout">
+    <article>
+      <section>
+        <img src="logo.png" alt="Логотип IT коледжу Львівської політехніки" height="300">
+      </section>
+
+      <section>
+        <p>@itcollegelviv · 58 відео</p>
+        <p>Офіційний YouTube-канал IT коледжу Львівської політехніки: відео про навчання, спеціальності та життя коледжу. Сайт коледжу — <a href="https://itcollege.lviv.ua" target="_blank">itcollege.lviv.ua</a>.</p>
+        <a class="button" href="https://www.youtube.com/@itcollegelviv?sub_confirmation=1" target="_blank" rel="noopener">Підписатися</a>
+      </section>
+
+      <section>
+        <h2>Відео</h2>
+        <video controls style="width: 80%; height: 540px;">
+          <source src="video.mp4" type="video/mp4">
+          <p>Ваш браузер не підтримує відео. <a href="video.mp4">Завантажити відео</a>.</p>
+        </video>
+      </section>
+
+      <section>
+        <h2>Аудіо</h2>
+        <audio controls>
+          <source src="audio.m4a" type="audio/mp4">
+          <p>Ваш браузер не підтримує аудіо. <a href="audio.m4a">Завантажити аудіо</a>.</p>
+        </audio>
+      </section>
+
+      <section>
+        <h2>Трансляція про навчання в коледжі</h2>
+        <!-- ВСТАВТЕ ID ВАШОГО ВІДЕО замість VIDEO_ID (YouTube → Поділитися → Вставити) -->
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Трансляція про навчання в коледжі" loading="lazy" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </section>
+
+      <section>
+        <h2>Університети та коледжі Львова</h2>
+        <!-- ВСТАВТЕ посилання з «Мої карти Google» → Поділитися → Вставити на сайт, замість MAP_ID -->
+        <iframe width="800" height="480" src="https://www.google.com/maps/d/embed?mid=MAP_ID"
+                title="Університети та коледжі Львова" loading="lazy"></iframe>
+      </section>
+    </article>
+
+    <aside>
+      <h2>Відео каналу</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb1.jpg" alt="Прев'ю відео"><span>Вивчай спеціальність майбутнього</span></a></li>
+        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb2.jpg" alt="Прев'ю відео"><span>122 Комп'ютерні науки. Computer Science. Вступ у IT</span></a></li>
+        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb3.jpg" alt="Прев'ю відео"><span>172 Телекомунікації та радіотехніка</span></a></li>
+        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb4.jpg" alt="Прев'ю відео"><span>172 Телекомунікації та радіотехніка — Інжиніринг та...</span></a></li>
+        <li><a href="https://www.youtube.com/@itcollegelviv/videos" target="_blank"><img src="thumb5.jpg" alt="Прев'ю відео"><span>029 Інформація, бібліотечна та архівна справа</span></a></li>
+      </ul>
+    </aside>
+  </main>
+</body>
+</html>
