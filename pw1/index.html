@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої три міста-привиди України — Блог мандрівника</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Подорожі тишею: три міста-привиди України <span role="img" aria-label="Компас мандрівника">🧭</span></h1>
+        <p>Вітаємо у нашому блозі індустріальних та історичних експедицій! Разом із друзями ми досліджуємо покинуті куточки України, де час зупинився, а природа повільно повертає собі бетонні вулиці.</p>
+    </header>
+
+    <nav aria-label="Головне меню сайту">
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="prypyat.html">Прип'ять</a></li>
+            <li><a href="orbita.html">Орбіта</a></li>
+            <li><a href="poliske.html">Поліське</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="contact.html">Контакти</a></li>
+            <li><a href="index.html#subscribe">Підписка</a></li>
+            <li><a href="../index.html">Усі роботи</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="cities-showcase">
+            <h2>Добірка трьох особливих локацій <span role="img" aria-label="Покинута будівля">🏚️</span></h2>
+            <p>Оберіть місто, щоб дізнатися про його історію, архітектуру та наші власні враження від мандрівки:</p>
+
+            <div class="city-cards">
+                <figure>
+                    <img src="img/prypyat-1.png" alt="Панорама покинутого колеса огляду та будинків у місті Прип'ять">
+                    <figcaption>
+                        <strong>Прип'ять (Київська область)</strong> — місто атомників у Чорнобильській зоні відчуження, де берези проросли крізь дахи багатоповерхівок.<br>
+                        <a class="city-btn" href="prypyat.html">Читати про Прип'ять</a>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/orbita-1.png" alt="Недобудовані будинки міста Орбіта на березі Кременчуцького водосховища">
+                    <figcaption>
+                        <strong>Орбіта (Черкаська область)</strong> — недобудоване місто енергетиків біля Чигирина з неймовірними краєвидами на Дніпро.<br>
+                        <a class="city-btn" href="orbita.html">Читати про Орбіту</a>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/poliske-1.png" alt="Заросла деревами центральна вулиця покинутого селища Поліське">
+                    <figcaption>
+                        <strong>Поліське (Київська область)</strong> — тихе містечко над річкою Уж, яке колись було жвавим районним центром Полісся.<br>
+                        <a class="city-btn" href="poliske.html">Читати про Поліське</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="subscribe">
+            <h2>Підписка на нові експедиції <span role="img" aria-label="Електронний лист">✉️</span></h2>
+            <p>Залиште свою електронну адресу, щоб отримувати фотозвіти та маршрути нових подорожей містами України.</p>
+
+            <form action="#" method="post">
+                <label for="subscribe-email">Ваша електронна пошта:</label>
+                <input type="email" id="subscribe-email" name="email" placeholder="traveler@example.com" required>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" id="subscribe-consent" name="consent" required>
+                    <label for="subscribe-consent">Я погоджуюся отримувати розсилку новин блогу</label>
+                </div>
+
+                <button type="submit">Підписатися</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <nav aria-label="Корисні посилання">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Політика конфіденційності</a></li>
+                    <li><a href="#">Умови використання</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="social-media">
+            <a href="#" aria-label="Сторінка блогу у Faceblock">
+                <img src="img/icon-faceblock.png" alt="Логотип соціальної мережі Faceblock"> Faceblock
+            </a>
+            <a href="#" aria-label="Сторінка блогу у Tweety">
+                <img src="img/icon-tweety.png" alt="Логотип соціальної мережі Tweety"> Tweety
+            </a>
+            <a href="#" aria-label="Сторінка блогу в Instadrama">
+                <img src="img/icon-instadrama.png" alt="Логотип соціальної мережі Instadrama"> Instadrama
+            </a>
+        </div>
+
+        <div class="footer-info">
+            <p>Зв'язок з автором: <a href="mailto:ghostcities.ua@example.com">ghostcities.ua@example.com</a> | <a href="contact.html">Форма зворотного зв'язку</a></p>
+            <p>&copy; 2026 Данило — Ghost Cities Ukraine Adventures Blog.</p>
+        </div>
+    </footer>
+</body>
+</html>
