@@ -1,0 +1,115 @@
+/* ===== Базові стилі (html, body, посилання) ===== */
+html { font-size: 62.5%; }
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+a { text-decoration: none; }
+a:link, a:visited { color: #0076A8; text-decoration: none; transition: color 0.5s ease-out; }
+a:hover, a:active { color: #00A1E4; text-decoration: none; transition: color 0.5s ease-out; }
+
+img { vertical-align: middle; border: 0; }
+.img-responsive { display: block; max-width: 100%; height: auto; }
+
+/* ===== Сітка (container / row / col) ===== */
+.container { margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
+.container:before, .container:after,
+.row:before, .row:after,
+.clearfix:before, .clearfix:after { display: table; content: " "; }
+.container:after, .row:after, .clearfix:after { clear: both; }
+.row { margin-right: -15px; margin-left: -15px; }
+
+.views-col { position: relative; float: left; min-height: 1px; padding-right: 15px; padding-left: 15px; box-sizing: border-box; }
+.col-xs-6 { width: 50%; }
+
+@media only screen and (min-width: 768px) {
+  .container { width: 750px; }
+  .col-sm-4 { width: 33.33333333%; }
+}
+@media only screen and (min-width: 992px) {
+  .container { width: 970px; }
+}
+@media only screen and (min-width: 1200px) {
+  .container { width: 1170px; }
+  .col-lg-2 { width: 16.66666667%; }
+}
+
+/* ===== Блок header#events_container ===== */
+#events_container {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  background: #252775;
+  padding: 3rem 0 0 0;
+}
+
+#events_container .col-sm-4 { margin-bottom: 3rem; }
+#events_container .col-3, #events_container .col-5 { clear: left; }
+#events_container .col-sm-4 .views-field { background: #fff; }
+
+#events_container h2 {
+  margin: 0 0 30px 0;
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+#events_container h2 a:link, #events_container h2 a:visited {
+  color: #fff;
+  transition: color 2s ease-out, border-bottom 2s ease-out;
+  border-bottom: 2px solid #fff;
+}
+#events_container h2 a:hover, #events_container h2 a:active {
+  color: #00A1E4;
+  transition: color 2s ease-out, border-bottom 2s ease-out;
+  border-bottom: 2px solid #00A1E4;
+}
+
+.event_date {
+  padding: 15px;
+  border-bottom: 1px dotted #252775;
+  text-align: center;
+}
+
+#events_container h3 {
+  padding: 15px;
+  margin: 0;
+  font-size: 1.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  background: #f6f6f6;
+}
+
+#events_container a:link img, #events_container a:visited img {
+  opacity: 0.85;
+  transition: opacity 2s ease-out;
+}
+#events_container a:hover img, #events_container a:active img {
+  opacity: 1;
+  transition: opacity 2s ease-out;
+}
+
+@media only screen and (min-width: 480px) {
+  #events_container h2 { font-size: 2.4rem; }
+}
+@media only screen and (min-width: 768px) {
+  #events_container h2 { margin: 15px 0 30px 0; font-size: 2.4rem; }
+  #events_container .col-3, #events_container .col-5 { clear: none; }
+  #events_container .col-4 { clear: left; }
+}
+@media only screen and (min-width: 992px) {
+  #events_container { padding: 3rem 0 3rem 0; }
+}
+@media only screen and (min-width: 1200px) {
+  #events_container h2 { font-size: 2.8rem; }
+  #events_container .col-4 { clear: none; }
+}
