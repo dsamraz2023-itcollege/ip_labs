@@ -3,117 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота №7 — Новини університету (Варіант 2)</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Національний університет «Львівська політехніка» — Новини та події</title>
+    <style>
+        :root {
+            --primary-blue: #312783;
+            --accent-blue: #2e3192;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --bg-light: #f5f7fa;
+            --border-color: #e0e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Шапка */
+        header {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Головний банер (Hero) */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(49, 39, 131, 0.65), rgba(49, 39, 131, 0.85)), url('images/lpfasad.jpg') center/cover no-repeat;
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            max-width: 850px;
+            margin: 0 auto 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Секції */
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            margin: 10px auto 0;
+        }
+
+        /* Сітка новин */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+
+        .news-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-date {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            flex-grow: 1;
+        }
+
+        .news-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .news-title a:hover {
+            color: var(--primary-blue);
+        }
+
+        .read-more {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            align-self: flex-start;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Блок обраних матеріалів (Featured) */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 520px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .featured-card {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 260px;
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .featured-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+
+        .featured-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .featured-overlay {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 25px 20px 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        }
+
+        .featured-overlay h3 {
+            font-size: 1.2rem;
+            line-height: 1.35;
+        }
+
+        /* Футер та проєкти */
+        footer {
+            background-color: #1f1b4d;
+            color: #ffffff;
+            padding: 40px 0 25px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #d0d5ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .partners-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .partners-logos img {
+            height: 44px;
+            width: auto;
+            background: #ffffff;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #aeb4e8;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Варіант 2: header#hero_container (Flexbox) -->
-    <header id="hero_container">
-        <div class="hero-inner">
-            <div class="hero-brand">
-                <img src="img/logo.svg" alt="Герб Львівської політехніки" class="hero-logo">
-                <div class="hero-titles">
-                    <span class="hero-subtitle">Національний університет</span>
-                    <h1 class="hero-title">«Львівська політехніка»</h1>
-                </div>
-            </div>
 
-            <nav class="hero-nav" aria-label="Головне меню">
-                <a href="#news" class="hero-nav-link">Новини</a>
-                <a href="#" class="hero-nav-link">Абітурієнту</a>
-                <a href="#" class="hero-nav-link">Студенту</a>
-                <a href="#" class="hero-nav-link">Наука</a>
-                <a href="../index.html" class="hero-nav-link hero-nav-accent">Усі лабораторні</a>
+    <header>
+        <div class="container header-content">
+            <a href="https://lpnu.ua/" class="site-title">Національний університет «Львівська політехніка»</a>
+            <nav>
+                <ul>
+                    <li><a href="https://lpnu.ua/lvivska-politekhnika">Політехніка</a></li>
+                    <li><a href="https://lpnu.ua/institutes">Інститути</a></li>
+                    <li><a href="https://lpnu.ua/osvita">Освіта</a></li>
+                    <li><a href="https://lpnu.ua/nauka">Наука</a></li>
+                    <li><a href="https://lpnu.ua/news">Новини</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Блок main з div.main-container та сіткою новин (CSS Grid) -->
-    <main>
-        <div class="main-container" id="news">
-            <div class="section-header">
-                <h2 class="section-title"><a href="#">Новини університету</a></h2>
-            </div>
+    <section class="hero">
+        <div class="container">
+            <h1>У Львівській політехніці презентували проєкт «Мапа хабів талантів України»</h1>
+            <p>Актуальні новини, наукові досягнення та події університетської спільноти</p>
+        </div>
+    </section>
 
-            <div class="news-grid">
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news1.svg" alt="Студентка ІМФН Софія Гладун про участь у зимовій школі ICMU Constructive Approximation and Its Applications">
-                            <span class="news-date">25 ЛЮТ. 2026, 09:05</span>
-                        </div>
-                        <h3 class="news-title">Студентка ІМФН Софія Гладун про участь у зимовій школі ICMU Constructive Approximation and Its Applications</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news2.svg" alt="Лекція-презентація «Життя і проєкти архітектора Олександра Вартересевича в світлі нових досліджень»">
-                            <span class="news-date">24 ЛЮТ. 2026, 17:18</span>
-                        </div>
-                        <h3 class="news-title">Лекція-презентація «Життя і проєкти архітектора Олександра Вартересевича в світлі нових досліджень»</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news3.svg" alt="У Львівській політехніці — фотовиставка «Андрій Парубій веде нас в бій!»">
-                            <span class="news-date">24 ЛЮТ. 2026, 14:38</span>
-                        </div>
-                        <h3 class="news-title">У Львівській політехніці — фотовиставка «Андрій Парубій веде нас в бій!»</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news4.svg" alt="Центр гуманітарної допомоги Львівської політехніки передав автомобіль для потреб Збройних Сил України">
-                            <span class="news-date">24 ЛЮТ. 2026, 11:36</span>
-                        </div>
-                        <h3 class="news-title">Центр гуманітарної допомоги Львівської політехніки передав автомобіль для потреб Збройних Сил України</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news5.svg" alt="Науковці НДЛ-26 Львівської політехніки створюють матеріали майбутнього для доріг України">
-                            <span class="news-date">24 ЛЮТ. 2026, 09:39</span>
-                        </div>
-                        <h3 class="news-title">Науковці НДЛ-26 Львівської політехніки створюють матеріали майбутнього для доріг України</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news6.svg" alt="Затверджено календарний план ІІ туру олімпіади для школярів «Майбутнє з Політехнікою»">
-                            <span class="news-date">23 ЛЮТ. 2026, 17:07</span>
-                        </div>
-                        <h3 class="news-title">Затверджено календарний план ІІ туру олімпіади для школярів «Майбутнє з Політехнікою»</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news7.svg" alt="В Університеті відбулася міжнародна конференція з радіоелектроніки, телекомунікацій та комп'ютерної інженерії TCSET-2026">
-                            <span class="news-date">23 ЛЮТ. 2026, 13:12</span>
-                        </div>
-                        <h3 class="news-title">В Університеті відбулася міжнародна конференція з радіоелектроніки, телекомунікацій та комп'ютерної інженерії TCSET-2026</h3>
-                    </a>
-                </article>
-                <article class="news-card">
-                    <a href="#" class="news-link">
-                        <div class="news-image-wrapper">
-                            <img src="img/news8.svg" alt="Людина з фотокамерою: відбувся вечір пам'яті знаного фотомитця, викладача Політехніки Ярослава Данила">
-                            <span class="news-date">23 ЛЮТ. 2026, 12:13</span>
-                        </div>
-                        <h3 class="news-title">Людина з фотокамерою: відбувся вечір пам'яті знаного фотомитця, викладача Політехніки Ярослава Данила</h3>
-                    </a>
-                </article>
-            </div>
+    <main class="container">
+
+        <!-- Важливі матеріали -->
+        <h2 class="section-title">Актуальне</h2>
+        <div class="featured-grid">
+            <a href="https://lpnu.ua/news/zvit-rektora-pro-osnovni-dosiahnennia-lvivskoi-politekhniky-u-2025-rotsi-na-konferentsii" class="featured-card">
+                <img src="images/lpfasad.jpg" alt="Фасад головного корпусу Львівської політехніки">
+                <div class="featured-overlay">
+                    <h3>Звіт ректора про основні досягнення Львівської політехніки у 2025 році на Конференції трудового колективу Університету</h3>
+                </div>
+            </a>
+            <a href="https://lpnu.ua/news/lvivska-politekhnika-u-reitynhakh-zakladiv-vyshchoi-osvity" class="featured-card">
+                <img src="images/lplitart.jpg" alt="Фронтон головного корпусу Львівської політехніки">
+                <div class="featured-overlay">
+                    <h3>Львівська політехніка у рейтингах закладів вищої освіти</h3>
+                </div>
+            </a>
+        </div>
+
+        <!-- Блок новин університету -->
+        <h2 class="section-title">Новини університету</h2>
+        <div class="news-grid">
+
+            <article class="news-card">
+                <img src="images/555j0a9426.jpg" alt="ІІІ Міжнародна конференція Інформаційно-вимірювальні технології">
+                <div class="news-body">
+                    <div class="news-date">20 листоп. 2026, 14:45</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulasia-iii-mizhnarodna-konferentsiia-informatsiino-vymiriuvalni">У Львівській політехніці відбулася ІІІ Міжнародна конференція «Інформаційно-вимірювальні технології»</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulasia-iii-mizhnarodna-konferentsiia-informatsiino-vymiriuvalni" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/5j0a0160.jpg" alt="Відкриття XII Міжнародного форуму молодих науковців Litteris et Artibus">
+                <div class="news-body">
+                    <div class="news-date">20 листоп. 2026, 11:05</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulosia-vidkryttia-xii-mizhnarodnoho-forumu-molodykh-naukovtsiv">У Львівській політехніці відбулося відкриття XII Міжнародного форуму молодих науковців «Litteris et Artibus»</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulosia-vidkryttia-xii-mizhnarodnoho-forumu-molodykh-naukovtsiv" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/5img9907.jpg" alt="MeetUp у Львівській політехніці: Христина Теличко">
+                <div class="news-body">
+                    <div class="news-date">19 листоп. 2026, 16:20</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/meetup-u-lvivskii-politekhnitsi-khrystyna-telychko-competence-operations-lead-u-kompanii-n-ix">MeetUp у Львівській політехніці: Христина Теличко, Competence Operations Lead у компанії N-iX</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/meetup-u-lvivskii-politekhnitsi-khrystyna-telychko-competence-operations-lead-u-kompanii-n-ix" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/img1724.jpg" alt="Студенти ІАРД Львівської політехніки здобули дипломи">
+                <div class="news-body">
+                    <div class="news-date">19 листоп. 2026, 15:25</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/studenty-iard-lvivskoi-politekhniky-zdobuly-dyplomy-i-ta-ii-stupeniv-na-mizhnarodnomu-konkursi">Студенти ІАРД Львівської політехніки здобули дипломи I та II ступенів на міжнародному конкурсі робіт</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/studenty-iard-lvivskoi-politekhniky-zdobuly-dyplomy-i-ta-ii-stupeniv-na-mizhnarodnomu-konkursi" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/im1g6639.jpg" alt="Круглий стіл: Врядування та бізнес: сучасні реалії">
+                <div class="news-body">
+                    <div class="news-date">27 листоп. 2026, 10:00</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/events/kruhlyi-stil-vriaduvannia-ta-biznes-suchasni-realii">Круглий стіл: «Врядування та бізнес: сучасні реалії»</a>
+                    </h3>
+                    <a href="https://lpnu.ua/events/kruhlyi-stil-vriaduvannia-ta-biznes-suchasni-realii" class="read-more">Детальніше про подію →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/lpfasad.jpg" alt="Студенти кафедри ДОА розробили універсальний дитячий майданчик">
+                <div class="news-body">
+                    <div class="news-date">20 листоп. 2026, 15:25</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/studenty-kafedry-doa-rozrobyly-universalnyi-dytiachyi-maidanchyk-u-spivpratsi-z-upravlinniam">Студенти кафедри ДОА розробили універсальний дитячий майданчик у співпраці з управлінням ЛМР</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/studenty-kafedry-doa-rozrobyly-universalnyi-dytiachyi-maidanchyk-u-spivpratsi-z-upravlinniam" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/lplitart.jpg" alt="Студенти кафедри ПЗ — призери інженерних змагань BEST Engineering Competition 2026">
+                <div class="news-body">
+                    <div class="news-date">20 листоп. 2026, 12:00</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/studenty-kafedry-pz-pryzery-inzhenernykh-zmahan-best-engineering-competition-2026">Студенти кафедри ПЗ — призери інженерних змагань BEST Engineering Competition 2026</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/studenty-kafedry-pz-pryzery-inzhenernykh-zmahan-best-engineering-competition-2026" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/555j0a9426.jpg" alt="Чергове засідання Наглядової ради університету">
+                <div class="news-body">
+                    <div class="news-date">19 листоп. 2026, 21:00</div>
+                    <h3 class="news-title">
+                        <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulosia-cherhove-zasidannia-nahliadovoi-rady-universytetu">У Львівській політехніці відбулося чергове засідання Наглядової ради університету</a>
+                    </h3>
+                    <a href="https://lpnu.ua/news/u-lvivskii-politekhnitsi-vidbulosia-cherhove-zasidannia-nahliadovoi-rady-universytetu" class="read-more">Читати далі →</a>
+                </div>
+            </article>
+
         </div>
     </main>
 
-    <footer class="site-footer">
-        <p>Лабораторна робота №7 — Програмування в Internet | Варіант 2 (header#hero_container)</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Громадські організації</h4>
+                    <ul>
+                        <li><a href="https://lpnu.ua/tovarystvo-prosvita">Товариство «Просвіта»</a></li>
+                        <li><a href="https://lpnu.ua/kolehiia-studentiv">Колегія студентів</a></li>
+                        <li><a href="https://lpnu.ua/ntsa">Наукове товариство студентів та аспірантів</a></li>
+                        <li><a href="https://best-lviv.org.ua/">BEST-Lviv</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Контакти</h4>
+                    <ul>
+                        <li>Канцелярія: coffice@lpnu.ua</li>
+                        <li>Пресцентр: com.centre@lpnu.ua</li>
+                        <li>Приймальна комісія: entrance@lpnu.ua</li>
+                        <li>Довідкова: +38 032 258-20-09</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Міжнародні проєкти</h4>
+                    <div class="partners-logos">
+                        <a href="https://mastis.competence.in.ua/" target="_blank"><img src="images/matis1.jpg" alt="MASTIS"></a>
+                        <a href="https://lpnu.ua/dochub" target="_blank"><img src="images/2dochub.jpg" alt="DocHub"></a>
+                        <a href="http://smalog-2017.uniroma2.it/uk/" target="_blank"><img src="images/smalog.jpg" alt="SMALOG"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © Національний університет «Львівська політехніка», 2005–2026.
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>
