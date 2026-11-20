@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №7 — Новини університету (Варіант 2)</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Варіант 2: header#hero_container (Flexbox) -->
+    <header id="hero_container">
+        <div class="hero-inner">
+            <div class="hero-brand">
+                <img src="img/logo.svg" alt="Герб Львівської політехніки" class="hero-logo">
+                <div class="hero-titles">
+                    <span class="hero-subtitle">Національний університет</span>
+                    <h1 class="hero-title">«Львівська політехніка»</h1>
+                </div>
+            </div>
+
+            <nav class="hero-nav" aria-label="Головне меню">
+                <a href="#news" class="hero-nav-link">Новини</a>
+                <a href="#" class="hero-nav-link">Абітурієнту</a>
+                <a href="#" class="hero-nav-link">Студенту</a>
+                <a href="#" class="hero-nav-link">Наука</a>
+                <a href="../index.html" class="hero-nav-link hero-nav-accent">Усі лабораторні</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Блок main з div.main-container та сіткою новин (CSS Grid) -->
+    <main>
+        <div class="main-container" id="news">
+            <div class="section-header">
+                <h2 class="section-title"><a href="#">Новини університету</a></h2>
+            </div>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news1.svg" alt="Студентка ІМФН Софія Гладун про участь у зимовій школі ICMU Constructive Approximation and Its Applications">
+                            <span class="news-date">25 ЛЮТ. 2026, 09:05</span>
+                        </div>
+                        <h3 class="news-title">Студентка ІМФН Софія Гладун про участь у зимовій школі ICMU Constructive Approximation and Its Applications</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news2.svg" alt="Лекція-презентація «Життя і проєкти архітектора Олександра Вартересевича в світлі нових досліджень»">
+                            <span class="news-date">24 ЛЮТ. 2026, 17:18</span>
+                        </div>
+                        <h3 class="news-title">Лекція-презентація «Життя і проєкти архітектора Олександра Вартересевича в світлі нових досліджень»</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news3.svg" alt="У Львівській політехніці — фотовиставка «Андрій Парубій веде нас в бій!»">
+                            <span class="news-date">24 ЛЮТ. 2026, 14:38</span>
+                        </div>
+                        <h3 class="news-title">У Львівській політехніці — фотовиставка «Андрій Парубій веде нас в бій!»</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news4.svg" alt="Центр гуманітарної допомоги Львівської політехніки передав автомобіль для потреб Збройних Сил України">
+                            <span class="news-date">24 ЛЮТ. 2026, 11:36</span>
+                        </div>
+                        <h3 class="news-title">Центр гуманітарної допомоги Львівської політехніки передав автомобіль для потреб Збройних Сил України</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news5.svg" alt="Науковці НДЛ-26 Львівської політехніки створюють матеріали майбутнього для доріг України">
+                            <span class="news-date">24 ЛЮТ. 2026, 09:39</span>
+                        </div>
+                        <h3 class="news-title">Науковці НДЛ-26 Львівської політехніки створюють матеріали майбутнього для доріг України</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news6.svg" alt="Затверджено календарний план ІІ туру олімпіади для школярів «Майбутнє з Політехнікою»">
+                            <span class="news-date">23 ЛЮТ. 2026, 17:07</span>
+                        </div>
+                        <h3 class="news-title">Затверджено календарний план ІІ туру олімпіади для школярів «Майбутнє з Політехнікою»</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news7.svg" alt="В Університеті відбулася міжнародна конференція з радіоелектроніки, телекомунікацій та комп'ютерної інженерії TCSET-2026">
+                            <span class="news-date">23 ЛЮТ. 2026, 13:12</span>
+                        </div>
+                        <h3 class="news-title">В Університеті відбулася міжнародна конференція з радіоелектроніки, телекомунікацій та комп'ютерної інженерії TCSET-2026</h3>
+                    </a>
+                </article>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image-wrapper">
+                            <img src="img/news8.svg" alt="Людина з фотокамерою: відбувся вечір пам'яті знаного фотомитця, викладача Політехніки Ярослава Данила">
+                            <span class="news-date">23 ЛЮТ. 2026, 12:13</span>
+                        </div>
+                        <h3 class="news-title">Людина з фотокамерою: відбувся вечір пам'яті знаного фотомитця, викладача Політехніки Ярослава Данила</h3>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Лабораторна робота №7 — Програмування в Internet | Варіант 2 (header#hero_container)</p>
+    </footer>
+</body>
+</html>

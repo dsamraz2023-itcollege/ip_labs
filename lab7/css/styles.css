@@ -1,0 +1,318 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #222222;
+    line-height: 1.45;
+}
+
+/* Анімації появи елементів */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Варіант 2: header#hero_container з використанням Flexbox */
+header#hero_container {
+    background: linear-gradient(135deg, #003b6f 0%, #005792 65%, #0074b7 100%);
+    color: #ffffff;
+    padding: 18px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.5s ease-out;
+}
+
+.hero-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-logo {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+}
+
+.hero-brand:hover .hero-logo {
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.hero-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-subtitle {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #cde6f5;
+}
+
+.hero-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.hero-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.hero-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.hero-nav-accent {
+    background-color: #f4c430;
+    color: #0b2545;
+    font-weight: 600;
+}
+
+.hero-nav-accent:hover {
+    background-color: #ffd54f;
+    color: #0b2545;
+}
+
+/* Основний контейнер новин */
+.main-container {
+    max-width: 1240px;
+    margin: 32px auto 48px;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-title {
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.section-title a {
+    color: #005792;
+    text-decoration: none;
+    border-bottom: 2px solid #005792;
+    padding-bottom: 4px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.section-title a:hover {
+    color: #003b6f;
+    border-color: #003b6f;
+}
+
+/* Сітка новин на CSS Grid Layout */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.news-card {
+    background-color: #f6f7f9;
+    border: 1px solid #e4e7ec;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.news-card:nth-child(1) { animation-delay: 0.05s; }
+.news-card:nth-child(2) { animation-delay: 0.10s; }
+.news-card:nth-child(3) { animation-delay: 0.15s; }
+.news-card:nth-child(4) { animation-delay: 0.20s; }
+.news-card:nth-child(5) { animation-delay: 0.25s; }
+.news-card:nth-child(6) { animation-delay: 0.30s; }
+.news-card:nth-child(7) { animation-delay: 0.35s; }
+.news-card:nth-child(8) { animation-delay: 0.40s; }
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 59, 111, 0.14);
+    background-color: #ffffff;
+}
+
+.news-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.news-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+    background-color: #d9e2ec;
+}
+
+.news-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-image-wrapper img {
+    transform: scale(1.06);
+}
+
+.news-date {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px 12px;
+    background: rgba(34, 38, 42, 0.72);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.news-title {
+    padding: 14px 14px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.38;
+    color: #005792;
+    transition: color 0.25s ease;
+}
+
+.news-card:hover .news-title {
+    color: #003559;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 18px 20px;
+    background-color: #f1f3f5;
+    color: #555555;
+    font-size: 14px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* =========================================
+   МЕДІА-ЗАПИТИ (3 брейкпоінти за завданням)
+   ========================================= */
+
+/* 1. Desktop (настільні ПК і ноутбуки): 1024px і більше — 4 колонки */
+@media (min-width: 1024px) {
+    .hero-inner {
+        flex-direction: row;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 2. Tablet (планшети): 768px – 1023px — 2 колонки */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 3. Mobile (мобільні пристрої): до 767px — 1 колонка */
+@media (max-width: 767px) {
+    .hero-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-brand {
+        flex-direction: column;
+    }
+
+    .hero-title {
+        font-size: 19px;
+    }
+
+    .hero-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}

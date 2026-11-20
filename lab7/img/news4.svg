@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d4a22"/>
+      <stop offset="100%" stop-color="#4e6e3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#g4)"/>
+  <circle cx="330" cy="55" r="70" fill="#ffffff" fill-opacity="0.08"/>
+  <circle cx="70" cy="190" r="95" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="24" y="24" width="140" height="28" rx="4" fill="#000000" fill-opacity="0.35"/>
+  <text x="94" y="43" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">ДОПОМОГА ЗСУ</text>
+  <text x="200" y="132" text-anchor="middle" fill="#ffffff" fill-opacity="0.9" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Львівська політехніка</text>
+</svg>
